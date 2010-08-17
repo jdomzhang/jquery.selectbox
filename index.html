@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>jquery selectbox</title>
+		<link type="text/css" rel="stylesheet" href="./css/style.css" />
+		<script src="lib/jquery/jquery-1.4.2.js"></script>
+		<script src="jquery.selectbox.js"></script>
+    </head>
+    <body>
+        <h1>jquery selectbox</h1>
+		<input id="item" />
+		<button id="mybutton">Add</button>
+		<button id="removeAllButton">Remove All</button>
+		
+		<div id="mydiv"></div>
+		
+		<script>
+			$(function()
+			{
+				$('#mybutton').click(function(){
+					var obj = $('#mydiv').data('selectbox');
+					obj.add($('#item').val());
+				});
+				
+				$('#removeAllButton').click(function(){
+					var obj = $('#mydiv').data('selectbox');
+					obj.removeAll();
+				});
+			});
+			
+			$(function()
+			{
+				var obj = $('#mydiv').selectbox({
+					getKey:function(item){return item.CPID;},
+					getText: function(item){return item.CP;},
+					}).data('selectbox');
+					
+				obj.add({CP: 'product 1', CPID: 1001, BU: 4001});
+				obj.add({CP: 'product 2', CPID: 1002, BU: 4002});
+				obj.add({CP: 'product 3', CPID: 1003, BU: 4003});
+			});
+		</script>
+    </body>
+</html>

@@ -1,0 +1,12 @@
+.selectbox-item
+{
+	border:solid gray 1px; margin: 2px; background: yellow; color: gray; padding: 0 2px;float:left;
+}
+.selectbox-text
+{
+	
+}
+.selectbox-icon
+{
+	color: red; padding-left: 5px; cursor: pointer;
+}
